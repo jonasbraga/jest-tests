@@ -1,5 +1,33 @@
 const functions = require("./functions");
 
+const initUnitTest   = () => console.info("Iniciando teste");
+const closeUnitTest  = () => console.log("Finalizando teste");
+const initAllTests   = () => console.info("Iniciando teste completo");
+const closeAllTests  = () => console.log("Finalizando teste completo");
+const initNameCheck  = () => console.info("Start checking name");
+const closeNameCheck = () => console.log("Finish checking name");
+
+describe("Checking names", () => {
+  beforeEach(initNameCheck);
+  afterEach(closeNameCheck);
+
+  test("User is Jonas", () => {
+    const userName = 'Jonas';
+    expect(userName).toBe('Jonas')
+  });
+
+  test("User is Braga", () => {
+    const userName = 'Braga';
+    expect(userName).toBe('Braga')
+  });
+});
+
+beforeEach(initUnitTest);
+afterEach(closeUnitTest);
+
+beforeAll(initAllTests);
+afterAll(closeAllTests);
+
 // Basic math tests
 test("Adds 2 + 2 to equal 4", () => {
   expect(functions.add(2, 2)).toBe(4);
